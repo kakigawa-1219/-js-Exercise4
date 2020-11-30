@@ -67,8 +67,11 @@ if(regexp.test(value)==true){
 $('.phone').on('blur' , function(){
     let value = $(this).val();
 var regexp =/^0\d{1}0-\d{4}-\d{4}$/;
-
-if(regexp.test(value)==false){
+if(value==""){
+    $('.error_required_phone').text("※入力必須項目です");
+    $('.error_phone').text("");
+}
+if(value!=""&&regexp.test(value)==false){
     $('.error_phone').text("※正しく入力してください");
     $('.error_required_phone').text("");
 }
@@ -77,6 +80,8 @@ if(regexp.test(value)==true){
     $('.error_phone').text("");
 }
 });
+
+
 
 
 
