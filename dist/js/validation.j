@@ -44,7 +44,10 @@ $('.max'+count).on('blur',function(){
 $('input[name="lastKana"]').on('blur' , function(){
 let value = $(this).val();
 var regexp =/[\u{3000}-\u{301C}\u{3041}-\u{3093}\u{309B}-\u{309E}]/mu;
-if(regexp.test(value)==false){
+if(value==""){
+    $('.error_kana_lastKana').text("");
+}
+if(value!=""&&regexp.test(value)==false){
     $('.error_kana_lastKana').text("※ひらがなで入力してください");
 }
 if(regexp.test(value)==true){
@@ -55,7 +58,10 @@ if(regexp.test(value)==true){
 $('input[name="firstKana"]').on('blur' , function(){
     let value = $(this).val();
 var regexp =/[\u{3000}-\u{301C}\u{3041}-\u{3093}\u{309B}-\u{309E}]/mu;
-if(regexp.test(value)==false){
+if(value==""){
+    $('.error_kana_firstKana').text("");
+}
+if(value!=""&&regexp.test(value)==false){
     $('.error_kana_firstKana').text("※ひらがなで入力してください");
 }
 if(regexp.test(value)==true){
@@ -80,8 +86,6 @@ if(regexp.test(value)==true){
     $('.error_phone').text("");
 }
 });
-
-
 
 
 
